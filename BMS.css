@@ -695,3 +695,41 @@ footer {
         display: flex !important;
     }
 }
+
+/* --- STRICT MOBILE OVERFLOW LOCK --- */
+html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .container,
+    .hero-container,
+    .skills-wrapper,
+    .contact-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .edu-grid,
+    .cards-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero-image img {
+        width: 100% !important;
+        max-width: 260px !important;
+        height: auto !important;
+    }
+}
