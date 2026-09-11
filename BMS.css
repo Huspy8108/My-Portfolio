@@ -566,7 +566,6 @@ footer {
 
 /* --- Tampilan Layar HP / Mobile --- */
 @media (max-width: 600px) {
-    /* 1. Kerapian Hero Section */
     .hero-text h1 {
         font-size: 2.1rem;
     }
@@ -606,5 +605,57 @@ footer {
             transform: none !important;
             box-shadow: none !important;
         }
+    }
+}
+
+.edu-card {
+    background: linear-gradient(145deg, rgba(26, 15, 46, 0.9) 0%, rgba(38, 22, 66, 0.6) 100%) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.edu-card.active-card {
+    border-color: var(--primary-light) !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block !important;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 15, 46, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 20px 0;
+        display: none;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .edu-grid,
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem !important;
     }
 }
