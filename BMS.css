@@ -563,3 +563,48 @@ footer {
         opacity: 0;
     }
 }
+
+/* --- Tampilan Layar HP / Mobile --- */
+@media (max-width: 600px) {
+    /* 1. Kerapian Hero Section */
+    .hero-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .cards-grid,
+    .edu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    @media (hover: none) {
+        .tool-card:hover,
+        .card:hover,
+        .edu-card:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+    }
+}
