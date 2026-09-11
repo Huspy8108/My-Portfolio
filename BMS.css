@@ -260,7 +260,7 @@ span.highlight, .section-title span {
     border-radius: 10px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: var(--transition);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out !important;
 }
 
 .tool-card i {
@@ -271,9 +271,10 @@ span.highlight, .section-title span {
 }
 
 .tool-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
+    transform: translateY(-5px) scale(1.02) !important;
+    border-color: var(--primary) !important;
     background: var(--bg-card-hover);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.25) !important;
 }
 
 .skills-split {
@@ -318,24 +319,26 @@ span.highlight, .section-title span {
 }
 
 .edu-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(30, 27, 75, 0.4);
+    border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 16px;
     padding: 30px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out !important;
     position: relative;
     overflow: hidden;
-}
-
-.edu-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+    height: 100%;
 }
 
 .edu-card.active-card {
     border-color: var(--primary-light);
     background: linear-gradient(145deg, rgba(26, 15, 46, 1) 0%, rgba(38, 22, 66, 0.8) 100%);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.edu-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3) !important;
 }
 
 .edu-header {
@@ -412,12 +415,14 @@ span.highlight, .section-title span {
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: var(--transition);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out !important;
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary);
+    transform: translateY(-8px) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
 }
 
 .card-img img {
@@ -474,6 +479,12 @@ span.highlight, .section-title span {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(139, 92, 246, 0.2);
+    transition: transform 0.3s ease-out, border-color 0.3s ease-out !important;
+}
+
+.info-box:hover {
+    transform: translateX(6px) !important;
+    border-color: var(--primary) !important;
 }
 
 .info-box i {
@@ -524,68 +535,31 @@ footer {
     color: var(--text-muted);
 }
 
-/* --- Responsive Styling --- */
-@media (max-width: 992px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-text p {
-        margin: 0 auto 30px;
-    }
-
-    .skills-split {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
+/* --- Ripple Effect  --- */
+.tool-card, 
+.contact-form .btn-primary {
+    position: relative;
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+.ripple-element {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(167, 139, 250, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    animation: center-outward-ripple 0.45s ease-out forwards;
+}
 
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-card);
-        flex-direction: column;
-        padding: 20px 0;
-        display: none;
-        border-bottom: 1px solid var(--primary);
+@keyframes center-outward-ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
     }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .timeline::after {
-        left: 31px;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 20px;
-    }
-
-    .timeline-item.right {
-        left: 0%;
-    }
-
-    .timeline-item.left .timeline-img, 
-    .timeline-item.right .timeline-img {
-        left: 0;
+    100% {
+        transform: translate(-50%, -50%) scale(30);
+        opacity: 0;
     }
 }
